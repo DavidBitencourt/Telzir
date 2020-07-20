@@ -3,10 +3,10 @@ import plans from "../utils/plans.json";
 
 export default class Calculate {
   getValuePerMinute(origin, destination) {
-    this.minute = data.find(
+    let minute = data.find(
       (item) => item.origin === origin && item.destination === destination
     );
-    return this.minute;
+    return minute;
   }
 
   calculateRate(minute) {

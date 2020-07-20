@@ -8,9 +8,10 @@ export const HeaderStyled = styled.header`
   display: flex;
   align-self: center;
   justify-content: space-between;
+  background: #ffffff;
   a {
     width: 15%;
-    height: 50px;
+    height: 45px;
     border-radius: 10px;
     color: #ffffff;
     font-weight: bold;

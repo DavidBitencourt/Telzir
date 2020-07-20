@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Typist from "react-typist";
 import phone from "../../assets/images/phone.png";
@@ -16,13 +16,15 @@ import {
 function Home() {
   const [loading, setLoading] = useState(true);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 3000);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
 
   return (
     <>
-      <Loading show={loading} />
+      {loading && <Loading show={loading} />}
       <HeaderStyled />
       <Container>
         <ContentContainer>

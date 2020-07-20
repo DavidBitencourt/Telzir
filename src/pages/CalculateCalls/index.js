@@ -34,9 +34,11 @@ function CalculateCalls() {
   const [openModal, setOpenModal] = useState(false);
   const calculator = new calculateController();
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 3000);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
 
   const calculateCallsPerMinute = () => {
     let { minute } = calculator.getValuePerMinute(origin, destination);
@@ -60,26 +62,28 @@ function CalculateCalls() {
 
   useEffect(() => {
     setProfit(() => calculator.calculateProfit(withoutPlan, withPlan));
-  }, [withPlan, withoutPlan]);
+  }, [calculator, withPlan, withoutPlan]);
 
   return (
     <>
-      <Loading show={loading} />
-      <Modal
-        visibility={openModal}
-        modalHandler={setOpenModal}
-        data={data}
-        labelHeader={[
-          "ddd (origem)",
-          "ddd (destino)",
-          "$/min",
-          "$/min excedente ***",
-        ]}
-      />
+      {loading && <Loading show={loading} />}
+      {openModal && (
+        <Modal
+          visibility={openModal}
+          modalHandler={setOpenModal}
+          data={data}
+          labelHeader={[
+            "ddd (origem)",
+            "ddd (destino)",
+            "$/min",
+            "$/min excedente ***",
+          ]}
+        />
+      )}
       <HeaderStyled backPage />
       <ContainerStyled>
         <AnimationBoxStyled>
-          <AnimationLottie animationData={phoneGirl} height="75%" width="75%" />
+          <AnimationLottie animationData={phoneGirl} height="80%" width="80%" />
         </AnimationBoxStyled>
         <MainStyled>
           <CalculateStyled>
@@ -154,13 +158,12 @@ function CalculateCalls() {
             />
           </GroupResultStyled>
           <InfoStyled>
-            <label data-testid="info-label">
+            <label>
               consulte as tarifas fixas por minuto clicando no ícone
             </label>
             <MdInfo
               onClick={() => setOpenModal(true)}
               style={{ fontSize: 25, cursor: "pointer" }}
-              data-testid="open-modal"
             />
           </InfoStyled>
         </MainStyled>

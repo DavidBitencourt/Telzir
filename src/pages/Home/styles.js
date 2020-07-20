@@ -27,7 +27,7 @@ export const ActionBox = styled.div`
   }
   a {
     width: 300px;
-    height: 50px;
+    height: 45px;
     display: flex;
     border-radius: 10px;
     justify-content: center;

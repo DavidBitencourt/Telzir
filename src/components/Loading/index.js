@@ -4,9 +4,9 @@ import loading from "../../assets/animations/loading.json";
 import AnimationLottie from "../AnimationLottie";
 import { LoadingBoxStyled } from "./styles";
 
-function Loading({ show, backgroundColor }) {
+function Loading({ show }) {
   return (
-    <LoadingBoxStyled backgroundColor={backgroundColor} show={show}>
+    <LoadingBoxStyled show={show}>
       <AnimationLottie
         height={100}
         width={100}
@@ -18,11 +18,11 @@ function Loading({ show, backgroundColor }) {
 }
 
 Loading.defaultProps = {
-  backgroundColor: "#ffffff",
+  show: false,
 };
+
 Loading.propTypes = {
   show: PropTypes.bool.isRequired,
-  backgroundColor: PropTypes.string,
 };
 
 export default Loading;

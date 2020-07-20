@@ -19,9 +19,7 @@ export const AnimationBoxStyled = styled.div`
     display: none;
   }
 `;
-// #FFFFFF
-// #0C0C0C
-// #EF6330
+
 export const MainStyled = styled.main`
   margin-top: 50px;
   background: linear-gradient(
@@ -39,7 +37,7 @@ export const MainStyled = styled.main`
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.7);
   @media only screen and (max-width: 800px) {
     width: 90%;
   }
